@@ -8,13 +8,6 @@ body {
 
 
 
-.formula_container {
-    background-color: rgb(145, 161, 167);
-    height: 30px;
-}
-
-
-
 .sheets {
     height: 30px;
     background-color: lightgray;
@@ -64,7 +57,7 @@ body {
 }
 
 .active_sheet {
-    background-color: white;
+    background-color: green;
 }
 
 
@@ -176,10 +169,36 @@ body {
     width: 30%;
 
 }
-.color-container{
+
+.color-container {
     display: flex;
     justify-content: space-between;
 }
-.color-container>*{
-    width:45%;
+
+.color-container>* {
+    width: 45%;
+}
+
+/* **************************************************************** */
+
+.formula_container {
+    background-color: rgb(145, 161, 167);
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.address-box {
+    width: 10%;
+
+}
+
+.formula-box {
+    width: 86%;
+}
+
+.separator {
+    width: 2%;
 }

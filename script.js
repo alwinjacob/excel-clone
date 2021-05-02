@@ -1,7 +1,22 @@
-let addbtnContainer = document.querySelector(".add-sheet_container")
-let sheetList = document.querySelector(".sheets_list")
+let addbtnContainer = document.querySelector(".add-sheet_container");
+let sheetList = document.querySelector(".sheets_list");
 let firstSheet = document.querySelector(".sheet");
+let addressBar = document.querySelector(".address-box");
+let Allcells = document.querySelectorAll(".grid .col");
 
+// Address Box Value
+for (let i = 0; i < Allcells.length; i++) {
+    Allcells[i].addEventListener("click", () => {
+        let rid = Number(Allcells[i].getAttribute("rid"));
+        let cid = Number(Allcells[i].getAttribute("cid"));
+        let rowAdd = rid + 1;
+        let colAdd = String.fromCharCode(cid + 65);
+        let address = colAdd + rowAdd;
+        addressBar.value = address;
+        // Allcells[i].style.border="2px solid lightgreen"
+    })
+}
+Allcells[0].click();
 
 firstSheet.addEventListener("click", handleActiveSheet)
 
