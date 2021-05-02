@@ -6,10 +6,7 @@ body {
     box-sizing: border-box;
 }
 
-.menu_container {
-    background-color: white;
-    height: 80px;
-}
+
 
 .formula_container {
     background-color: rgb(145, 161, 167);
@@ -22,12 +19,12 @@ body {
     height: 30px;
     background-color: lightgray;
     display: flex;
-    overflow-x: auto;
+    /* overflow-x: auto; */
 }
 
 .add-sheet_container {
     height: 100%;
-    width: 30px;
+    min-width: 30px;
     border: 1px solid grey;
     display: flex;
     justify-content: center;
@@ -36,23 +33,33 @@ body {
 
 .icon {
     font-size: 1.2rem;
-    color: rgb(44, 206, 44);;
+    color: rgb(44, 206, 44);
+    ;
 }
 
 .sheets_list {
     display: flex;
     height: 100%;
-    margin-left: 0.2rem;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 
 }
 
+.sheets_list::-webkit-scrollbar {
+    display: none;
+}
+
 .sheet {
-    width: 60px;
+    min-width: 60px;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
+
+
 
 }
 
@@ -111,4 +118,68 @@ body {
     background-color: rgb(44, 206, 44);
     text-align: center;
     border: 1px solid;
+}
+
+/* ********************************************************************************************************* */
+.menu_container {
+    background-color: lightblue;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    /* justify-content:space-evenly; */
+}
+
+.menu_container>* {
+    height: 80%;
+    width: 20%;
+    border-right: 2px solid;
+}
+
+.alignment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alignment-container>* {
+    width: 20%;
+}
+
+.formatting-container {
+    display: flex;
+    /* align-items:center; */
+    justify-content: space-around;
+}
+
+.subgroup {
+    width: 45%;
+    height: 100%;
+}
+
+.subgroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.subgroup>* {
+    width: 100%;
+}
+
+.BUI_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.BUI_container>* {
+    width: 30%;
+
+}
+.color-container{
+    display: flex;
+    justify-content: space-between;
+}
+.color-container>*{
+    width:45%;
 }

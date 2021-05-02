@@ -2,29 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=., initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=., initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="init.js" defer></script>
     <script src="script.js" defer></script>
     <title>EXCEL-MASTER</title>
-
 </head>
 
 <body>
-    <div class="menu_container">menu</div>
-    <div class="formula_container"> formula_container</div>
+    <div class="menu_container">
+        <div class="formatting-container">
+            <div class="subgroup">
+
+                <select id="font-family"class="font-family">
+                    <option value="Arial">Arial</option>
+                    <option value="Cambria">Cambria</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="monospace">monospace</option>
+                    <option value="sans-serif">sans-serif</option>
+                    <option value="fantasy">fantasy</option>
+                </select>
+
+                <div class="BUI_container">
+                    <input type="button" value="B" />
+                    <input type="button" value="I" />
+                    <input type="button" value="U" />
+                </div>
+            </div>
+            <div class="subgroup">
+               
+                    <select id="font-size"class="font-size">
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="16">16</option>
+                        <option value="20">20</option>
+                        <option value="32">32</option>
+                    </select>
+                
+                <div class="color-container">
+                    <input type="color" id="color">
+                    <input type="color" id="bg-color">
+
+                </div>
+            </div>
+        </div>
+        <div class="alignment-container">
+            <input type="button" value="L" />
+            <input type="button" value="C" />
+            <input type="button" value="R" />
+        </div>
+    </div>
+    <div class="formula_container">formula_container</div>
     <div class="grid_container">
-        <div class="top-left-block">
-        </div>
-        <div class="top-row">
-        </div>
-        <div class="left-col">
-        </div>
+        <div class="top-left-block"></div>
+        <div class="top-row"></div>
+        <div class="left-col"></div>
         <div class="grid"></div>
     </div>
     <div class="sheets">
@@ -32,7 +70,7 @@
             <i class="fas fa-plus icon"></i>
         </div>
         <div class="sheets_list">
-            <div class="sheet active_sheet" SheetIdx="1"> sheet1</div>
+            <div class="sheet active_sheet" SheetIdx="1">sheet1</div>
         </div>
     </div>
 </body>
