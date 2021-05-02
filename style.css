@@ -26,7 +26,7 @@ body {
 
 .icon {
     font-size: 1.2rem;
-    color: rgb(44, 206, 44);
+    color: #393b3f;
     ;
 }
 
@@ -57,7 +57,8 @@ body {
 }
 
 .active_sheet {
-    background-color: green;
+    background-color: white;
+    color: green;
 }
 
 
@@ -70,12 +71,12 @@ body {
 .top-left-block {
     height: 30px;
     width: 25px;
-    background-color: gray;
+    background-color: #dadce0;
 }
 
 .top-row {
     height: 30px;
-    background-color: rgb(44, 206, 44);
+    background-color: rgb(140, 143, 140);
     display: flex;
     position: absolute;
     top: 0px;
@@ -115,17 +116,18 @@ body {
 
 .left-col_box {
     height: 30px;
-    background-color: rgb(44, 206, 44);
+    background-color: rgb(140, 143, 140);
     text-align: center;
     border: 1px solid;
 }
 
 /* ********************************************************************************************************* */
 .menu_container {
-    background-color: lightblue;
+    background-color: #97ACCF;
     height: 80px;
     display: flex;
     align-items: center;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.698);
     /* justify-content:space-evenly; */
 }
 
@@ -133,6 +135,11 @@ body {
     height: 80%;
     width: 20%;
     border-right: 2px solid;
+}
+
+.xlLogo {
+    width: 7%;
+    height: 60%;
 }
 
 .alignment-container {
@@ -189,7 +196,7 @@ body {
 /* **************************************************************** */
 
 .formula_container {
-    background-color: rgb(145, 161, 167);
+    background-color: rgb(209, 211, 212);
     height: 30px;
     display: flex;
     align-items: center;

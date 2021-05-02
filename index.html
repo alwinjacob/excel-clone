@@ -11,15 +11,16 @@
     <link rel="stylesheet" href="style.css" />
     <script src="init.js" defer></script>
     <script src="script.js" defer></script>
+    <link rel="icon" href="xl.png" type="image/x-icon">
     <title>EXCEL-MASTER</title>
 </head>
 
 <body>
     <div class="menu_container">
+        <img src="xl.png" class="xlLogo">
         <div class="formatting-container">
             <div class="subgroup">
-
-                <select id="font-family"class="font-family">
+                <select id="font-family" class="font-family">
                     <option value="Arial">Arial</option>
                     <option value="Cambria">Cambria</option>
                     <option value="Georgia">Georgia</option>
@@ -29,22 +30,22 @@
                 </select>
 
                 <div class="BUI_container">
-                    <input type="button" value="B"  class="bold" />
-                    <input type="button" value="I"  class="italic"/>
-                    <input type="button" value="U"  class="underline" />
+                    <input type="button" value="B" class="bold" />
+                    <input type="button" value="I" class="italic" />
+                    <input type="button" value="U" class="underline" />
                 </div>
             </div>
             <div class="subgroup">
-               
-                    <select id="font-size"class="font-size">
-                        <option value="8">8</option>
-                        <option value="10">10</option>
-                        <option value="12">12</option>
-                        <option value="16">16</option>
-                        <option value="20">20</option>
-                        <option value="32">32</option>
-                    </select>
-                
+
+                <select id="font-size" class="font-size">
+                    <option value="8">8</option>
+                    <option value="10">10</option>
+                    <option value="12">12</option>
+                    <option value="16">16</option>
+                    <option value="20">20</option>
+                    <option value="32">32</option>
+                </select>
+
                 <div class="color-container">
                     <input type="color" id="color">
                     <input type="color" id="bg-color">
@@ -53,9 +54,9 @@
             </div>
         </div>
         <div class="alignment-container">
-            <input type="button" value="L" class="Left"/>
-            <input type="button" value="C" class="Center"/>
-            <input type="button" value="R" class="Right"/>
+            <input type="button" value="L" class="Left" />
+            <input type="button" value="C" class="Center" />
+            <input type="button" value="R" class="Right" />
         </div>
     </div>
     <div class="formula_container">
@@ -74,7 +75,7 @@
             <i class="fas fa-plus icon"></i>
         </div>
         <div class="sheets_list">
-            <div class="sheet active_sheet" SheetIdx="1">sheet1</div>
+            <div class="sheet active_sheet" SheetIdx="1">Sheet 1</div>
         </div>
     </div>
 </body>
