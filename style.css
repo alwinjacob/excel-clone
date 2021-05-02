@@ -88,12 +88,19 @@ body {
 }
 
 .col {
-    min-width: 80px;
+    width: 80px;
     border: 1px solid;
-    min-height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 30px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    word-wrap: break-word;
+}
+
+.col::-webkit-scrollbar {
+    display: none;
 }
 
 .left-col {
