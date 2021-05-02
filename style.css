@@ -236,9 +236,9 @@ body {
         display: none
     }
     div.grid_container {
-        /* height: calc(100vh - (80px + 30px + 30px)); */
+        height: calc(100vh - (80px + 30px + 30px));
         position: relative;
         overflow: auto;
-        height: 69vh;
+        /* height: 69vh; */
     }
 }
