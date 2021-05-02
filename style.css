@@ -216,3 +216,29 @@ body {
 .separator {
     width: 2%;
 }
+
+/* *********RESPONSIVE******************** */
+@media (max-width: 500px) {
+    div.menu_container {
+        background-color: green;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.698);
+        /* justify-content:space-evenly; */
+    }
+    div.menu_container>* {
+        height: 80%;
+        width: 49%;
+        border-right: 2px solid;
+    }
+    img.xlLogo {
+        display: none
+    }
+    div.grid_container {
+        /* height: calc(100vh - (80px + 30px + 30px)); */
+        position: relative;
+        overflow: auto;
+        height: 69vh;
+    }
+}
