@@ -27,7 +27,7 @@ body {
 .icon {
     font-size: 1.2rem;
     color: #393b3f;
-    ;
+    
 }
 
 .sheets_list {
@@ -138,8 +138,10 @@ body {
 }
 
 .xlLogo {
-    width: 4%;
-    height: 60%;
+    width: 9%;
+    height: 68%;
+    margin-left: 1rem;
+    padding-right: 1rem;
 }
 
 .alignment-container {
@@ -203,18 +205,21 @@ body {
     justify-content: space-evenly;
 
 }
-
+.fxlogo{
+    height: 20px;
+    padding-right: .5rem;
+}
 .address-box {
     width: 10%;
 
 }
 
 .formula-box {
-    width: 86%;
+    width: 85%;
 }
 
 .separator {
-    width: 2%;
+    width: .5%;
 }
 
 /* *********RESPONSIVE******************** */
