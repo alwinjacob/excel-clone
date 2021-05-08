@@ -98,6 +98,8 @@ body {
     scrollbar-width: none;
     /* Firefox */
     word-wrap: break-word;
+    font-family: Arial;
+    font-size: 16px;
 }
 
 .col::-webkit-scrollbar {
@@ -138,7 +140,8 @@ body {
 }
 
 .xlLogo {
-    width: 9%;
+    /* width: 9%; */
+    max-width:10em;
     height: 68%;
     margin-left: 1rem;
     padding-right: 1rem;
@@ -159,6 +162,9 @@ body {
     /* align-items:center; */
     justify-content: space-around;
 }
+.active-btn{
+    background-color:rgb(104, 98, 98);
+}
 
 .subgroup {
     width: 45%;
@@ -171,6 +177,18 @@ body {
     justify-content: space-evenly;
 }
 
+/* .BUI_container {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+} */
+
+.subgroup>* {
+    width: 100%;
+    height: 34%;
+}
 .subgroup>* {
     width: 100%;
 }
@@ -185,6 +203,9 @@ body {
     width: 30%;
 
 }
+/* .BUI_container .fas{
+    width: 30%;
+} */
 
 .color-container {
     display: flex;
@@ -238,7 +259,8 @@ body {
         border-right: 2px solid;
     }
     img.xlLogo {
-        display: none
+        display: none;
+       
     }
     div.grid_container {
         height: calc(100vh - (80px + 30px + 30px));

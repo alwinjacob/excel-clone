@@ -22,3 +22,34 @@ for (let i = 0; i < 100; i++) {
     //${String.fromCharCode(65 + j)}${i + 1}
 }
 grid.innerHTML = str;
+
+
+
+
+workSheetDB = [];
+function initCurrentSheetDB() {
+    //2d Array -> Styling prop
+    let sheetDB = [];
+    for (let i = 0; i < 100; i++) {
+        let row = [];
+        for (let j = 0; j < 26; j++) {
+            let cell = {
+                //formatting
+                bold: false,
+                italic: false,
+                underline: false,
+                fontFamily: "Arial",
+                fontSize: "16",
+                hAlign: "left",
+                bg_color: "white",
+                fg_color: "black",
+                //text
+                value:"",
+            };
+            row.push(cell);
+        }
+        sheetDB.push(row);
+    }
+    workSheetDB.push(sheetDB);
+}
+initCurrentSheetDB();
