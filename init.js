@@ -45,6 +45,8 @@ function initCurrentSheetDB() {
                 fg_color: "black",
                 //text
                 value:"",
+                children:[],
+                formula:""
             };
             row.push(cell);
         }
