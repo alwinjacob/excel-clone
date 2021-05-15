@@ -22,12 +22,22 @@ let forColor = document.querySelector("#color");
 let bgColor = document.querySelector("#bg-color");
 
 let formulaInput = document.querySelector(".formula-box");
+let gridContainer = document.querySelector(".grid_container");
+let topLeftBlock = document.querySelector(".top-left-block");
+// let topRow = document.querySelector(".top-row");
+// let leftCol = document.querySelector(".top-col");
+
+
 let sheetDB = workSheetDB[0];
 
 //************************************************************************* */
 //colors
 bgColor.addEventListener("change", () => {
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   let bgcolorValue = bgColor.value;
   cell.style.backgroundColor = bgcolorValue;
   let cellObj = sheetDB[rid][cid];
@@ -35,7 +45,11 @@ bgColor.addEventListener("change", () => {
 });
 
 forColor.addEventListener("change", () => {
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   let fcolor = forColor.value;
   cell.style.color = fcolor;
   let cellObj = sheetDB[rid][cid];
@@ -45,7 +59,11 @@ forColor.addEventListener("change", () => {
 //BUTTON FUNCTIONALITY
 boldBtn.addEventListener("click", () => {
   let isActive = boldBtn.classList.contains("active-btn");
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   let cellObj = sheetDB[rid][cid];
   if (isActive == false) {
     cell.style.fontWeight = "bold";
@@ -73,7 +91,11 @@ boldBtn.addEventListener("click", () => {
 
 italicBtn.addEventListener("click", () => {
   let isActive = italicBtn.classList.contains("active-btn");
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   let cellObj = sheetDB[rid][cid];
   if (isActive == false) {
     cell.style.fontStyle = "oblique";
@@ -100,7 +122,11 @@ italicBtn.addEventListener("click", () => {
 
 underlineBtn.addEventListener("click", () => {
   let isActive = underlineBtn.classList.contains("active-btn");
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   let cellObj = sheetDB[rid][cid];
   if (isActive == false) {
     cell.style.textDecorationLine = "underline";
@@ -127,7 +153,11 @@ underlineBtn.addEventListener("click", () => {
 let fontFamilyBtn = document.querySelector(".font-family");
 fontFamilyBtn.addEventListener("change", () => {
   let fontFamily = fontFamilyBtn.value;
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   cell.style.fontFamily = fontFamily;
   let cellObj = sheetDB[rid][cid];
   cellObj.fontFamily = fontFamily;
@@ -136,14 +166,22 @@ fontFamilyBtn.addEventListener("change", () => {
 let fontSizeBtn = document.querySelector(".font-size");
 fontSizeBtn.addEventListener("change", () => {
   let fontSize = fontSizeBtn.value;
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   cell.style.fontSize = fontSize + "px";
   let cellObj = sheetDB[rid][cid];
   cellObj.fontSize = fontSize;
 });
 
 leftButton.addEventListener("click", () => {
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   cell.style.textAlign = "left";
   for (let i = 0; i < allAlignBtn.length; i++) {
     allAlignBtn[i].classList.remove("active-btn");
@@ -155,7 +193,11 @@ leftButton.addEventListener("click", () => {
 });
 
 rightButton.addEventListener("click", () => {
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   cell.style.textAlign = "right";
   for (let i = 0; i < allAlignBtn.length; i++) {
     allAlignBtn[i].classList.remove("active-btn");
@@ -167,7 +209,11 @@ rightButton.addEventListener("click", () => {
 });
 
 centerButton.addEventListener("click", () => {
-  let { cell, rid, cid } = cellAddress();
+  let {
+    cell,
+    rid,
+    cid
+  } = cellAddress();
   cell.style.textAlign = "center";
   for (let i = 0; i < allAlignBtn.length; i++) {
     allAlignBtn[i].classList.remove("active-btn");
@@ -182,7 +228,10 @@ centerButton.addEventListener("click", () => {
 
 function cellAddress() {
   let address = addressBar.value;
-  let { rid, cid } = getRidCidFromAddress(address);
+  let {
+    rid,
+    cid
+  } = getRidCidFromAddress(address);
   let cell = document.querySelector(`.col[cid="${cid}"][rid="${rid}"]`);
   return {
     cell,
@@ -260,7 +309,27 @@ for (let i = 0; i < Allcells.length; i++) {
     fontSizeBtn.value = cellObj.fontSize;
     // formulaInput.value = cellObj.formula;
   });
+  Allcells[i].addEventListener("keydown", () => {
+    let obj = Allcells[i].getBoundingClientRect();
+    let height = obj.height;
+    let address = addressBar.value;
+    let {
+      rid,
+      cid
+    } = getRidCidFromAddress(address);
+    let leftCol = document.querySelectorAll(".left-col .left-col_box")[rid];
+    leftCol.style.height = height + "px";
+  })
 }
+gridContainer.addEventListener("scroll", (e) => {
+  let top = gridContainer.scrollTop;
+  let left =gridContainer.scrollLeft; 
+
+  topLeftBlock.style.top=top+"px";
+  topRow.style.top=top+"px";
+  leftCol.style.left = left+"px";
+  topLeftBlock.style.left=left+"px";
+})
 Allcells[0].click();
 
 firstSheet.addEventListener("click", handleActiveSheet);
@@ -351,13 +420,21 @@ function setUI(sheetDB) {
 for (let i = 0; i < Allcells.length; i++) {
   Allcells[i].addEventListener("blur", () => {
     let address = addressBar.value;
-    let { col, rid, cid } = cellAddress();
+    let {
+      col,
+      rid,
+      cid
+    } = cellAddress();
     let cellObj = sheetDB[rid][cid];
     let cell = document.querySelector(`.col[rid="${rid}"][cid="${cid}"]`);
     //formula Stuff
     if (cellObj.value == cell.innerText) {
       return;
     }
+
+    //Cycle detection using isFormulaValid?
+    // # TODO
+
     if (cellObj.formula) {
       removeFormula(cellObj, address);
     }
@@ -388,7 +465,10 @@ formulaInput.addEventListener("keydown", (e) => {
   if (e.key == "Enter" && formulaInput.value != "") {
     let address = addressBar.value;
     let newFormula = formulaInput.value;
-    let { rid, cid } = getRidCidFromAddress(address);
+    let {
+      rid,
+      cid
+    } = getRidCidFromAddress(address);
     let cellObj = sheetDB[rid][cid];
     let previousFormula = cellObj.formula;
     if (previousFormula == newFormula) {
@@ -434,9 +514,14 @@ function evaluateFormula(formula) {
   for (let i = 0; i < formulaToken.length; i++) {
     let firstCarOfToken = formulaToken[i].charCodeAt(0);
     if (firstCarOfToken >= 65 && firstCarOfToken <= 90) {
-      let { rid, cid } = getRidCidFromAddress(formulaToken[i]);
+      let {
+        rid,
+        cid
+      } = getRidCidFromAddress(formulaToken[i]);
       let cellObj = sheetDB[rid][cid];
-      let { value } = cellObj;
+      let {
+        value
+      } = cellObj;
       formula = formula.replace(formulaToken[i], value);
     }
   }
