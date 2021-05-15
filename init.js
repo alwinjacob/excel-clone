@@ -41,8 +41,8 @@ function initCurrentSheetDB() {
                 fontFamily: "Arial",
                 fontSize: "16",
                 hAlign: "left",
-                bg_color: "white",
-                fg_color: "black",
+                bg_color: "#FFFFFF",
+                fg_color: "#000000",
                 //text
                 value:"",
                 children:[],

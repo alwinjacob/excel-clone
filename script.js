@@ -244,13 +244,11 @@ for (let i = 0; i < Allcells.length; i++) {
     } else if (cellObj.hAlign == "center") {
       centerButton.classList.add("active-btn");
     }
-
     if (cellObj.formula != "") {
-      formulaInput.value = "";
-    } else {
       formulaInput.value = cellObj.formula;
+    } else {
+      formulaInput.value = "";
     }
-
     //Bg-Colors
     bgColor.value = cellObj.bg_color;
     //fg-color
@@ -260,6 +258,7 @@ for (let i = 0; i < Allcells.length; i++) {
     fontFamilyBtn.value = cellObj.fontFamily;
     //Font-size
     fontSizeBtn.value = cellObj.fontSize;
+    // formulaInput.value = cellObj.formula;
   });
 }
 Allcells[0].click();
@@ -341,6 +340,7 @@ function setUI(sheetDB) {
       cell.style.color = fg_color;
       cell.style.fontFamily = fontFamily;
       cell.style.fontSize = fontSize;
+
     }
   }
 }
@@ -353,33 +353,33 @@ for (let i = 0; i < Allcells.length; i++) {
     let address = addressBar.value;
     let { col, rid, cid } = cellAddress();
     let cellObj = sheetDB[rid][cid];
-    let cell = document.querySelector(`.col[cid="${cid}"][rid="${rid}"]`);
-    cellObj.value = cell.innerText;
-    //formula Stufff
+    let cell = document.querySelector(`.col[rid="${rid}"][cid="${cid}"]`);
+    //formula Stuff
     if (cellObj.value == cell.innerText) {
       return;
     }
     if (cellObj.formula) {
       removeFormula(cellObj, address);
     }
+    cellObj.value = cell.innerText;
     changeChildren(cellObj);
   });
-  Allcells[i].addEventListener("keydown", (e) => {
-    if (e.key == "Tab" || e.key == "Enter") {
-      let { col, rid, cid } = cellAddress();
-      let address = addressBar.value;
-      let cellObj = sheetDB[rid][cid];
-      let cell = document.querySelector(`.col[cid="${cid}"][rid="${rid}"]`);
-      cellObj.value = cell.innerText;
-      if (cellObj.value == cell.innerText) {
-        return;
-      }
-      if (cellObj.formula) {
-        removeFormula(cellObj, address);
-      }
-      changeChildren(cellObj);
-    }
-  });
+  // Allcells[i].addEventListener("keydown", (e) => {
+  //   if (e.key == "Tab" || e.key == "Enter") {
+  //     let { col, rid, cid } = cellAddress();
+  //     let address = addressBar.value;
+  //     let cellObj = sheetDB[rid][cid];
+  //     let cell = document.querySelector(`.col[cid="${cid}"][rid="${rid}"]`);
+  //     cellObj.value = cell.innerText;
+  //     if (cellObj.value == cell.innerText) {
+  //       return;
+  //     }
+  //     if (cellObj.formula) {
+  //       removeFormula(cellObj, address);
+  //     }
+  //     changeChildren(cellObj);
+  //   }
+  // });
 }
 
 
@@ -387,27 +387,28 @@ for (let i = 0; i < Allcells.length; i++) {
 formulaInput.addEventListener("keydown", (e) => {
   if (e.key == "Enter" && formulaInput.value != "") {
     let address = addressBar.value;
-    let formula = formulaInput.value;
+    let newFormula = formulaInput.value;
     let { rid, cid } = getRidCidFromAddress(address);
     let cellObj = sheetDB[rid][cid];
     let previousFormula = cellObj.formula;
-    if (previousFormula == formula) {
+    if (previousFormula == newFormula) {
       return;
     }
-    if (previousFormula != "" && previousFormula != formula) {
+    if (previousFormula != "" && previousFormula != newFormula) {
       removeFormula(cellObj, address);
     }
     //evaluate
-    let value = evaluateFormula(formula);
+    console.log(newFormula);
+    let evaluatedValue = evaluateFormula(newFormula);
     //Ui-change
-    setUIByFormula(value, rid, cid);
+    setUIByFormula(evaluatedValue, rid, cid);
     //db-> work
-    setContentInDB(value, formula, rid, cid, address);
+    setFormula(evaluatedValue, newFormula, rid, cid, address);
     changeChildren(cellObj);
   }
 });
 
-function setContentInDB(value, formula, rid, cid, address) {
+function setFormula(value, formula, rid, cid, address) {
   let cellObj = sheetDB[rid][cid];
   cellObj.value = value;
   cellObj.formula = formula;
