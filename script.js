@@ -309,8 +309,9 @@ for (let i = 0; i < Allcells.length; i++) {
     fontSizeBtn.value = cellObj.fontSize;
     // formulaInput.value = cellObj.formula;
   });
-  Allcells[i].addEventListener("keydown", () => {
+  Allcells[i].addEventListener("keyup", () => {
     let obj = Allcells[i].getBoundingClientRect();
+    // console.log(obj)
     let height = obj.height;
     let address = addressBar.value;
     let {
@@ -318,17 +319,22 @@ for (let i = 0; i < Allcells.length; i++) {
       cid
     } = getRidCidFromAddress(address);
     let leftCol = document.querySelectorAll(".left-col .left-col_box")[rid];
-    leftCol.style.height = height + "px";
+    // console.log(leftCol)
+    if (height == 30) {
+      leftCol.style.height = 30 + "px";
+    } else {
+      leftCol.style.height = height + "px";
+    }
+    // console.log(height)
   })
 }
 gridContainer.addEventListener("scroll", (e) => {
   let top = gridContainer.scrollTop;
-  let left =gridContainer.scrollLeft; 
-
-  topLeftBlock.style.top=top+"px";
-  topRow.style.top=top+"px";
-  leftCol.style.left = left+"px";
-  topLeftBlock.style.left=left+"px";
+  let left = gridContainer.scrollLeft;
+  topLeftBlock.style.top = top + "px";
+  topRow.style.top = top + "px";
+  leftCol.style.left = left + "px";
+  topLeftBlock.style.left = left + "px";
 })
 Allcells[0].click();
 
@@ -355,6 +361,7 @@ addbtnContainer.addEventListener("click", () => {
   sheetDB = workSheetDB[idx];
   //empty the cells
   initUI();
+  // console.log(workSheetDB)
   NewSheet.addEventListener("click", handleActiveSheet);
 });
 
@@ -478,7 +485,7 @@ formulaInput.addEventListener("keydown", (e) => {
       removeFormula(cellObj, address);
     }
     //evaluate
-    console.log(newFormula);
+    // console.log(newFormula);
     let evaluatedValue = evaluateFormula(newFormula);
     //Ui-change
     setUIByFormula(evaluatedValue, rid, cid);
@@ -559,3 +566,6 @@ function changeChildren(cellObj) {
     changeChildren(chObj);
   }
 }
+
+
+// NEW OPEN SAVE

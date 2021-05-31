@@ -8,17 +8,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+        integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.1/tippy-bundle.umd.min.js"
+        integrity="sha512-xULG5PJghLB+bsq9AuFbarjLtvtxDVjh47LlxXG25U2v3m+YB7OvNjA6m7pyampiwPVvrXv3Wupiv8oSX+5lRw=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.1/tippy.min.css"
+        integrity="sha512-cFrU9cXMuM9vFGp9UuvYm8mnhWWMIjD592Ry4lu4mv4NAHepZDfvrvD6KJq5g6+a02btseK7xxZASYLFfsSopw=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
     <script src="init.js" defer></script>
     <script src="script.js" defer></script>
     <script src="formula.js" defer></script>
-    <link rel="icon" href="xl.png" type="image/x-icon">
+    <script src="newOpenSave.js" defer></script>
+    <script src="tippy.js" defer></script>
+    <link rel="icon" href="excel-logo.png" type="image/x-icon">
     <title>EXCEL-MASTER</title>
 </head>
 
 <body>
+    <div class="name_container">
+        <input type="text" class="filename" placeholder="Untitled Spreadsheet">
+    </div>
     <div class="menu_container">
-        <img src="logo1.png" class="xlLogo">
+        <div class="logo-container">
+            <img src="excel-logo.png" class="logo">
+        </div>
+
         <div class="formatting-container">
             <div class="subgroup">
                 <select id="font-family" class="font-family">
@@ -31,12 +49,12 @@
                 </select>
 
                 <div class="BUI_container">
-                    <!-- <i class="fas fa-bold"></i> -->
-                    <input type="button" value="B" class="bold" />
-                    <input type="button" value="I" class="italic" />
-                    <!-- <i class="fas fa-italic"></i> -->
-                    <input type="button" value="U" class="underline" />
-                    <!-- <i class="fas fa-underline"></i> -->
+                    <i class="fas fa-bold bold"></i>
+                    <!-- <input type="button" value="B" class="bold" /> -->
+                    <!-- <input type="button" value="I" class="italic" /> -->
+                    <i class="fas fa-italic italic"></i>
+                    <!-- <input type="button" value="U" class="underline" /> -->
+                    <i class="fas fa-underline underline"></i>
                 </div>
             </div>
             <div class="subgroup">
@@ -52,25 +70,31 @@
                 </select>
 
                 <div class="color-container">
-                    <input type="color" id="color">
+                    <input type="color" id="color"></input>
                     <input type="color" id="bg-color">
 
                 </div>
             </div>
         </div>
         <div class="alignment-container">
-            <!-- <i class="fas fa-align-left"></i> -->
-            <!-- <i class="fas fa-align-center"></i> -->
-            <!-- <i class="fas fa-align-right"></i> -->
-            <input type="button" value="L" class="Left" />
+            <i class="fas fa-align-left Left"></i>
+            <i class="fas fa-align-center Center"></i>
+            <i class="fas fa-align-right Right"></i>
+            <!-- <input type="button" value="L" class="Left" />
             <input type="button" value="C" class="Center" />
-            <input type="button" value="R" class="Right" />
+            <input type="button" value="R" class="Right" /> -->
         </div>
+        <div class="nos-container">
+            <i class="fas fa-file-alt new"></i>
+            <i class="fas fa-file-upload open"></i>
+            <i class="fas fa-save save"></i>
+        </div>
+
     </div>
     <div class="formula_container">
         <input type="text" class="address-box" readonly>
         <div class="separator">:</div>
-        <img src="fx.png" class = "fxlogo">
+        <img src="fx.png" class="fxlogo">
         <input type="text" class="formula-box">
     </div>
     <div class="grid_container">

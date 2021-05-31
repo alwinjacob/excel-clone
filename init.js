@@ -26,7 +26,7 @@ grid.innerHTML = str;
 
 
 
-workSheetDB = [];
+let workSheetDB = [];
 function initCurrentSheetDB() {
     //2d Array -> Styling prop
     let sheetDB = [];

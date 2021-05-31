@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    overflow: hidden;
 }
 
 * {
@@ -27,7 +28,7 @@ body {
 .icon {
     font-size: 1.2rem;
     color: #393b3f;
-    
+
 }
 
 .sheets_list {
@@ -51,9 +52,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
-
-
 }
 
 .active_sheet {
@@ -63,7 +61,7 @@ body {
 
 
 .grid_container {
-    height: calc(100vh - (80px + 30px + 30px));
+    height: calc(100vh - (30px + 80px + 30px + 30px));
     position: relative;
     overflow: auto;
 }
@@ -72,20 +70,21 @@ body {
     height: 30px;
     width: 25px;
     background-color: #dadce0;
-    position:absolute;
-    top:0px;
-    left:0px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
     z-index: 100;
 }
 
 .top-row {
     height: 30px;
-    background-color: rgb(140, 143, 140);
+    /* background-color: rgb(140, 143, 140); */
+    background-color: rgb(245, 245, 245);
     display: flex;
     position: absolute;
     top: 0px;
     left: 25px;
-    z-index:90;
+    z-index: 90;
 }
 
 
@@ -93,25 +92,33 @@ body {
     display: flex;
 }
 
+
+
 .col {
     min-width: 80px;
-    max-width:80px;
-    border: 1px solid;
+    max-width: 80px;
+    /* border: 1px solid; */
+    outline: 0px solid transparent;
+    border: 0.1px solid rgba(169, 169, 169, 0.45);
     min-height: 30px;
+    word-wrap: break-word;
     /* display: flex;
     justify-content: center;
     align-items: center; */
+    ;
 }
+
 .col::-webkit-scrollbar {
     display: none;
 }
 
 .left-col {
     width: 25px;
-    position:absolute;
-    top:30px;
-    left:0px;
-    z-index:90;
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    z-index: 90;
+    background-color: #C2C3C5;
 }
 
 .grid {
@@ -122,20 +129,47 @@ body {
 
 .left-col_box {
     height: 30px;
-    background-color: rgb(140, 143, 140);
+    /* background-color: rgb(140, 143, 140); */
+    border: 0.5px solid darkgray;
+    background-color: rgb(245, 245, 245);
     text-align: center;
-    border: 1px solid;
-    
+    /* border: 1px solid; */
+
 }
 
 /* ********************************************************************************************************* */
 .menu_container {
-    background-color: #97ACCF;
+    background-color: #F8F9FA;
     height: 80px;
     display: flex;
     align-items: center;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.698);
+    /* box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.698); */
     /* justify-content:space-evenly; */
+}
+
+.name_container {
+    background-color: #F8F9FA;
+}
+
+.filename {
+    background-color: #F8F9FA;
+    margin-top: 0.1rem;
+    margin-left: 3.9rem;
+    border: 1px solid transparent;
+    border-bottom: 2px solid rgb(192, 190, 190);
+    height: 26px;
+    outline: none;
+    line-height: 22px;
+    font-size: 16px;
+    border-radius: 2px !important;
+    padding: 2px 7px;
+    color: #00A568;
+
+}
+
+.logo {
+    height: 80%;
+    width: 80%;
 }
 
 .menu_container>* {
@@ -144,9 +178,19 @@ body {
     border-right: 2px solid;
 }
 
-.xlLogo {
+.logo-container {
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.xlLogo2 {
     /* width: 9%; */
-    max-width:10em;
+    max-width: 7em;
     height: 68%;
     margin-left: 1rem;
     padding-right: 1rem;
@@ -156,6 +200,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    width:15%;
 }
 
 .alignment-container>* {
@@ -167,8 +213,10 @@ body {
     /* align-items:center; */
     justify-content: space-around;
 }
-.active-btn{
-    background-color:rgb(104, 98, 98);
+
+.active-btn {
+    /* background-color: rgb(104, 98, 98); */
+    background-color: #85D1B2;
 }
 
 .subgroup {
@@ -194,6 +242,7 @@ body {
     width: 100%;
     height: 34%;
 }
+
 .subgroup>* {
     width: 100%;
 }
@@ -202,12 +251,46 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.nos-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-file-alt,
+.fa-file-upload,
+.fa-save,
+.fa-align-left,
+.fa-align-center,
+.fa-align-right {
+    font-size: 20px;
+}
+
+.fas:active {
+    transform: translateY(1px);
+}
+
+.open {
+    width: 33.3%;
+}
+
+.new {
+    width: 33.3%;
+}
+
+.save {
+    width: 9.3%;
 }
 
 .BUI_container>* {
     width: 30%;
 
 }
+
 /* .BUI_container .fas{
     width: 30%;
 } */
@@ -224,19 +307,25 @@ body {
 /* **************************************************************** */
 
 .formula_container {
-    background-color: rgb(209, 211, 212);
+    /* background-color: rgb(209, 211, 212); */
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background-color: #F8F9FA;
 
 }
-.fxlogo{
+
+.fxlogo {
     height: 20px;
     padding-right: .5rem;
 }
+
 .address-box {
-    width: 10%;
+    /* width: 10%; */
+    height: 80%;
+    width: 5%;
+    text-align: center;
 
 }
 
@@ -258,15 +347,18 @@ body {
         box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.698);
         /* justify-content:space-evenly; */
     }
+
     div.menu_container>* {
         height: 80%;
         width: 49%;
         border-right: 2px solid;
     }
+
     img.xlLogo {
         display: none;
-       
+
     }
+
     div.grid_container {
         height: calc(100vh - (80px + 30px + 30px));
         position: relative;
